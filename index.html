@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+<script>
+  var element = document.getElementsByClassName("button");
+  function func(i) {
+   if(i!=8){
+      tip = parseInt(element[i].value);
+   }
+    bill = parseInt(document.getElementsByClassName("input1")[0].value);
+    nop = parseInt(document.getElementsByClassName("input1")[1].value);
+    tipamount = (tip)*bill*0.01;
+    tipperson = (tipamount/nop).toFixed(2);
+    total = bill + tipamount;
+    totalperson = (total/nop).toFixed(2);
+    amount = document.getElementsByClassName("amount");
+    amount[0].innerHTML = "$" + String(tipperson);
+    amount[1].innerHTML = "$" + String(totalperson);
+    if (i===5) {
+      for(let k=0; k< element.length-1;k++)
+      {
+        element[k].style.backgroundColor="hsl(183, 100%, 15%)";
+      }return;
+    }
+    for(let j=0; j< element.length-1;j++)
+    {
+      element[j].style.backgroundColor="hsl(183, 100%, 15%)";
+    }
+    element[i].style.backgroundColor="hsl(172, 67%, 45%)";
+  }
+</script>
+</head>
+<body>
+  <img class="logo" src="images\logo.svg" alt="">
+  <div class="main">
+    <div class="inner1">
+      <img src="images\icon-dollar.svg" class="image1" alt="">
+      <img src="images\icon-person.svg" class="image2" alt="">
+      <p style = "font-size:12px;font-weight:500;">Bill</p>
+      <input type="number" class="input1" name="input1" dir="rtl" oninput="func(8)">
+      <p style = "font-size:12px;font-weight:500;">Select Tip %</p>
+      <div class="buttongrp">
+        <div class="grp1">
+          <input type="button" class="button" onclick="func(0)" name="" value="5%">
+          <input type="button" class="button" onclick="func(1)" name="" value="10%">
+          <input type="button" class="button" onclick="func(2)" name="" value="15%">
+        </div>
+        <div class="grp2">
+          <input type="button" class="button" onclick="func(3)" name="" value="25%">
+          <input type="button" class="button" onclick="func(4)" name="" value="50%">
+          <input type="text" class="button b2" oninput="func(5)" onclick="func(5)" name="" value="" placeholder="Custom">
+        </div>
+      </div>
+      <p style = "font-size:12px;font-weight:500;">Number of People</p>
+      <input type="number" class="input1" name="input1" dir="rtl" oninput="func(8)">
+
+    </div>
+    <div class="inner2">
+      <div class="b1">
+        <div class="sub">
+          <div class="sty1">Tip Amount</div>
+          <div class="sty2">/ person</div>
+        </div>
+        <div class="amount">
+          $32
+        </div>
+      </div>
+     <div class="b1">
+       <div class="sub">
+         <div class="sty1">Total</div>
+         <div class="sty2">/ person</div>
+       </div>
+       <div class="amount">
+         $21
+       </div>
+     </div>
+    <button type="reset" class="reset" name="button">RESET</button>
+
+
+    </div>
+  </div>
+
+
+
+
+
+</body>
+</html>
